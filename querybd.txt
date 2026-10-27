@@ -1,0 +1,14 @@
+-- Buscar archivos por palabra clave en el contenido
+SELECT filename, filetype FROM documentos
+WHERE content LIKE '%contrato%';
+
+-- Contar archivos por tipo
+SELECT filetype, COUNT(*) as total
+FROM documentos
+GROUP BY filetype;
+
+-- Archivos más grandes
+SELECT filename, file_size/1024 as kb
+FROM documentos
+ORDER BY file_size DESC
+LIMIT 10;
